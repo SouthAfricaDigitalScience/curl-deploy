@@ -27,7 +27,7 @@ ls -lht ${SRC_DIR}/${SOURCE_FILE}
 echo "extracting the tarball"
 tar xfz ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE}
 echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
-cd ${WORKSPACE}/${NAME}
+cd ${WORKSPACE}/${NAME}-${VERSION}
 mkdir build-${BUILD_NUMBER}
 cd ${BUILD_NUMBER}
 ../configure
