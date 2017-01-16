@@ -2,7 +2,8 @@
 . /etc/profile.d/modules.sh
 SOURCE_FILE=${NAME}-${VERSION}.tar.gz
 module add ci
-module add openssl
+module add openssl/1.0.2
+module add zlib
 
 # We need to make the dependencies and then curl.
 
@@ -31,3 +32,4 @@ cd ${WORKSPACE}/${NAME}-${VERSION}
 mkdir build-${BUILD_NUMBER}
 cd build-${BUILD_NUMBER}
 ../configure --prefix=${SOFT_DIR}
+make

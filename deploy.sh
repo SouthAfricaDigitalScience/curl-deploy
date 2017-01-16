@@ -3,7 +3,8 @@
 . /etc/profile.d/modules.sh
 echo ${SOFT_DIR}
 module add deploy
-module add openssl
+module add openssl/1.0.2
+module add zlib
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
