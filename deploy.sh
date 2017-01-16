@@ -7,9 +7,7 @@ module add openssl
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
-../configure ABI=64 \
---with-gnu-ld \
---enable-shared \
+../configure \
 --prefix=${SOFT_DIR}
 make install -j2
 echo "Creating the modules file directory ${LIBRARIES_MODULES}"
@@ -28,7 +26,6 @@ module-whatis   "$NAME $VERSION : See https://github.com/SouthAfricaDigitalScien
 setenv CURL_VERSION       $VERSION
 setenv CURL_DIR           $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path LD_LIBRARY_PATH   $::env(CURL_DIR)/lib
-prepend-path GCC_INCLUDE_DIR   $::env(CURL_DIR)/include
 prepend-path CFLAGS            "-I${CURL_DIR}/include"
 prepend-path LDFLAGS           "-L${CURL_DIR}/lib"
 MODULE_FILE

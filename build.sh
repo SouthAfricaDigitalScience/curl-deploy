@@ -6,7 +6,6 @@ module add openssl
 
 # We need to make the dependencies and then curl.
 
-
 mkdir -p $WORKSPACE
 mkdir -p $SRC_DIR
 mkdir -p $SOFT_DIR
@@ -31,4 +30,4 @@ echo "Going to ${WORKSPACE}/${NAME}-${VERSION"}
 cd ${WORKSPACE}/${NAME}
 mkdir build-${BUILD_NUMBER}
 cd ${BUILD_NUMBER}
-../configure 
+../configure
