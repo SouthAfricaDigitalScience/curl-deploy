@@ -29,5 +29,5 @@ tar xfz ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE}
 echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 cd ${WORKSPACE}/${NAME}-${VERSION}
 mkdir build-${BUILD_NUMBER}
-cd ${BUILD_NUMBER}
-../configure
+cd build-${BUILD_NUMBER}
+../configure --prefix=${SOFT_DIR}
