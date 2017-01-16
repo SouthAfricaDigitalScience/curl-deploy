@@ -23,7 +23,7 @@ proc ModulesHelp { } {
 
 module-whatis   "$NAME $VERSION."
 setenv       CURL_VERSION       $VERSION
-setenv       CURL_DIR           /data-ci/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       CURL_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path LD_LIBRARY_PATH   $::env(CURL_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(CURL_DIR)/include
 prepend-path CFLAGS            "-I${CURL_DIR}/include"
