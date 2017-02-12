@@ -22,14 +22,19 @@ proc ModulesHelp { } {
 }
 
 module-whatis   "$NAME $VERSION."
-setenv       CURL_VERSION       $VERSION
-setenv       CURL_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       CURL_VERSION              $VERSION
+setenv       CURL_DIR                         /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+prepend-path PATH                           $::env(CURL_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(CURL_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(CURL_DIR)/include
-prepend-path CFLAGS            "-I${CURL_DIR}/include"
-prepend-path LDFLAGS           "-L${CURL_DIR}/lib"
+prepend-path CFLAGS                       "-I${CURL_DIR}/include"
+prepend-path LDFLAGS                     "-L${CURL_DIR}/lib -lcurl"
 MODULE_FILE
 ) > modules/$VERSION
 
 mkdir -p ${LIBRARIES_MODULES}/${NAME}
 cp modules/$VERSION ${LIBRARIES_MODULES}/${NAME}
+
+module avail $NAME
+module add ${NAME}/${VERSION}
+which curl

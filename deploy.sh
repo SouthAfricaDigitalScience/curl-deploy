@@ -24,13 +24,14 @@ proc ModulesHelp { } {
 }
 
 module-whatis   "$NAME $VERSION : See https://github.com/SouthAfricaDigitalScience/CURL-deploy"
-setenv CURL_VERSION       $VERSION
-setenv CURL_DIR           $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv CURL_VERSION                     $VERSION
+setenv CURL_DIR                               $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+prepend-path PATH                           $::env(CURL_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(CURL_DIR)/lib
-prepend-path CFLAGS            "-I${CURL_DIR}/include"
-prepend-path LDFLAGS           "-L${CURL_DIR}/lib"
+prepend-path CFLAGS                       "-I${CURL_DIR}/include"
+prepend-path LDFLAGS                     "-L${CURL_DIR}/lib -lcurl"
 MODULE_FILE
 ) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}
-
-module add ${NAME}
+module avail ${NAME}
+module add ${NAME}/${VERSION}
 which curl
