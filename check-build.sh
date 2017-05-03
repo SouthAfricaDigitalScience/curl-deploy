@@ -15,7 +15,7 @@
 
 . /etc/profile.d/modules.sh
 module add ci
-module add  openssl/1.0.2
+module add  openssl/1.0.2j
 module add zlib
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 make check

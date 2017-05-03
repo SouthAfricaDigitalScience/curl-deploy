@@ -17,7 +17,7 @@
 . /etc/profile.d/modules.sh
 echo ${SOFT_DIR}
 module add deploy
-module add openssl/1.0.2
+module add openssl/1.0.2j
 module add zlib
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
