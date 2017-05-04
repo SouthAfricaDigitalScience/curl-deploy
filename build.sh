@@ -16,8 +16,8 @@
 . /etc/profile.d/modules.sh
 SOURCE_FILE=${NAME}-${VERSION}.tar.gz
 module add ci
-module add openssl/1.0.2j
 module add zlib
+module add openssl/1.0.2j
 
 # We need to make the dependencies and then curl.
 
@@ -45,5 +45,8 @@ echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 cd ${WORKSPACE}/${NAME}-${VERSION}
 mkdir build-${BUILD_NUMBER}
 cd build-${BUILD_NUMBER}
-../configure --prefix=${SOFT_DIR}
+export CPPFLAGS="-I${OPENSSL_DIR}/include"
+export LDFLAGS="-L${OPENSSL_DIR}/lib"
+../configure --prefix=${SOFT_DIR} \
+--with-ssl=${OPENSSL_DIR}
 make
