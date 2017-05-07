@@ -16,7 +16,6 @@
 . /etc/profile.d/modules.sh
 SOURCE_FILE=${NAME}-${VERSION}.tar.gz
 module add ci
-module add zlib
 module add openssl/1.0.2j
 
 # We need to make the dependencies and then curl.
