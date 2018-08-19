@@ -15,7 +15,7 @@
 
 . /etc/profile.d/modules.sh
 module add ci
-module add  openssl/1.0.2j
+module add openssl/1.0.2j
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 # make check
 
@@ -47,7 +47,7 @@ MODULE_FILE
 
 mkdir -p ${LIBRARIES}/${NAME}
 cp modules/$VERSION ${LIBRARIES}/${NAME}
-
 module avail $NAME
+module list
 module add ${NAME}/${VERSION}
 which curl

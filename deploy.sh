@@ -47,4 +47,5 @@ MODULE_FILE
 ) > ${LIBRARIES}/${NAME}/${VERSION}
 module avail ${NAME}
 module add ${NAME}/${VERSION}
+module list
 which curl

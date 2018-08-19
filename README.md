@@ -5,7 +5,7 @@
 Build, test and deploy scripts for the curl library and executables
 
 
-this build has several curl depdendencies as well :
+this build has several curl dependencies as well :
 
   * C-ARES : http://c-ares.haxx.se/download/c-ares-1.10.0.tar.gz
   * Metalink : https://launchpad.net/libmetalink/trunk/libmetalink-0.1.3/+download/libmetalink-0.1.3.tar.x
@@ -13,3 +13,23 @@ this build has several curl depdendencies as well :
   * nss : https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_22_RTM/src/nss-3.22.tar.gz
 
 These are _not_ built by the project on Jenkins at the moment.
+
+## Versions
+
+We build the following versions:
+
+  - 7.46.0
+  - 7.61.0
+
+## Dependencies
+
+This project depends on :
+
+  - zlib
+  - openssl
+
+## Configuration
+
+## Usage
+
+## Citation
